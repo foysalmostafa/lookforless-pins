@@ -1,0 +1,28 @@
+name: Weekly CEO Brief
+
+on:
+  schedule:
+    # Every Monday at 1:00 AM UTC = 7:00 AM Bangladesh time
+    - cron: '0 1 * * 1'
+  workflow_dispatch:  # allows manual trigger for testing
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Telegram notification
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
+          -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
+          -d "text=🏠 Good morning CEO!
+
+📋 MONDAY BRIEF — The Look for Less
+
+Your actions this week:
+1️⃣ Open Claude chat
+2️⃣ Drop last week's Pinterest Analytics CSV (Impressions + Saves exports)
+3️⃣ Upload any pending PIN CSV if scheduled count ≤ 80
+
+I (MORGAN) will handle everything else.
+
+Let's build the business. 💰"
