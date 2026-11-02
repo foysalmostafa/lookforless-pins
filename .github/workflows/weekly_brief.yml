@@ -13,4 +13,4 @@ jobs:
         run: |
           curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
             --data-urlencode "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
-            --data-urlencode "text=Good morning CEO! MONDAY BRIEF - The Look for Less. Your actions this week: 1) Check Pinterest scheduled count - if 80 or less, upload PINS_PACK30_part2 CSV. 2) Drop last week Pinterest Analytics CSV in Claude chat. MORGAN will handle everything else. Lets build the business."
+            --data-urlencode "text=Monday backup reminder: keep your PC and the Claude app on today so the daily 8 AM business loop can run. MORGAN will message you if anything needs you."
