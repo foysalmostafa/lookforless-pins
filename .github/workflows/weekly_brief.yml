@@ -11,6 +11,6 @@ jobs:
     steps:
       - name: Send Telegram notification
         run: |
-          MESSAGE="🏠 Good morning CEO!%0A%0A📋 MONDAY BRIEF — The Look for Less%0A%0AYour actions this week:%0A1️⃣ Open Claude chat%0A2️⃣ Drop last week Pinterest Analytics CSV%0A3️⃣ Upload pending PIN CSV if scheduled count is 80 or less%0A%0AMORGAN will handle everything else. Let's build the business. 💰"
           curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
-            -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=${MESSAGE}"
+            --data-urlencode "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
+            --data-urlencode "text=Good morning CEO! MONDAY BRIEF - The Look for Less. Your actions this week: 1) Check Pinterest scheduled count - if 80 or less, upload PINS_PACK30_part2 CSV. 2) Drop last week Pinterest Analytics CSV in Claude chat. MORGAN will handle everything else. Lets build the business."
